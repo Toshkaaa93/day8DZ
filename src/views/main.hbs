@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center">
+    <h1>Лента</h1>
+</div>
+
+<div class="d-flex justify-content-center">
+    <form class="d-flex flex-column align-items-center" action="/addressbook" method="POST">
+        <div class="mb-3">
+            <input name="imgs" placeholder="Ссылка на изображение" type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <input name="textPost" placeholder="Текст" type="text" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить пост</button>
+    </form>
+</div>
+
+<hr />
+
+<section data-cart class="d-flex flex-column align-items-center">
+    {{#each listOfCities}}
+    <div data-id="{{this.imageId}}" data-post="{{this.postNumber}}">
+        <div class="card my-2 " style="width: 25rem;">
+            <img src="{{this.imgs}}" class="card-img-top shadow-lg p-3 mb-5 bg-body rounded">
+            <div class="card-body">
+                <p class="card-text">{{this.textPost}}</p>
+                <div class="d-flex justify-content-center">
+                    <button data-action="delete" type="submit" class="btn btn-primary">Удалить</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    {{/each}}
+
+</section>
